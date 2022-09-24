@@ -1,5 +1,12 @@
 <?php
 
+function theme_setup()
+{
+  add_theme_support('post-thumbnail');
+}
+
+add_action('after_setup_theme', 'theme_setup');
+
 function personal_style()
 {
   wp_enqueue_style('boot', get_theme_file_uri('assets/css/bootstrap.min.css'));
@@ -15,4 +22,6 @@ function personal_style()
   wp_enqueue_script('img', get_theme_file_uri('assets/js/imgfix.min.js'), null, '1.0', true);
   wp_enqueue_script('custom', get_theme_file_uri('assets/js/custom.js'), null, '1.0', true);
 }
+
+
 add_action('wp_enqueue_scripts', 'personal_style');
